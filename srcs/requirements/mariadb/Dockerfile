@@ -14,6 +14,7 @@ RUN echo "[mysqld]" >> /etc/mysql/my.cnf && \
     echo "skip-bind-address" >> /etc/mysql/my.cnf
 
 COPY ./tools/entrypoint.sh /entrypoint.sh
+
 RUN chmod +x /entrypoint.sh
 
 USER mysql
