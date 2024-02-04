@@ -35,11 +35,10 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
     wp theme delete twentytwentytwo --allow-root
 
     # Cria um usuário
-    wp user create --allow-root \
-        --user_login=$WP_USER \
-        --user_email=$WP_EMAIL \
+    wp user create $WP_USER $WP_EMAIL \
         --role=author \
-        --user_pass=$WP_PASSWORD
+        --user_pass=$WP_PASSWORD \
+        --allow-root
 
     # Desinstala plugins padrão
     wp plugin uninstall akismet hello --allow-root

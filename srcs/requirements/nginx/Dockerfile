@@ -1,4 +1,3 @@
-# Usando a imagem base Debian Bullseye
 FROM debian:bullseye
 
 RUN apt-get update -y && \
