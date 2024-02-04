@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb
+    init: true
+    container_name: mariadb
+    build:
+      context: ./requirements/mariadb
+    env_file:
+      - .env
+    ports:
+      - 3306:3306
+    networks:
+      - inception
+    volumes:
+      - mariadb:/var/lib/mysql
+  
+networks:
+  inception:
+    name: inception
+    driver: bridge
+
+volumes:
+  mariadb:
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/${LOGIN}/data/mariadb
