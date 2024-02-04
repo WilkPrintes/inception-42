@@ -5,8 +5,10 @@ PATH_VOLUME	= /home/$(LOGIN)/data
 all: build
 
 build:
+	sudo mkdir -p $(PATH_VOLUME)/wordpress
 	sudo mkdir -p $(PATH_VOLUME)/mariadb
 	sudo chmod -R 777 $(PATH_VOLUME)/mariadb
+	sudo chmod -R 777 $(PATH_VOLUME)/wordpress
 	sudo docker-compose --file=$(PATH_COMPOSE) up --build --detach 
 	sudo grep $(LOGIN).42.fr /etc/hosts || echo "127.0.0.1 $(LOGIN).42.fr" | sudo tee -a /etc/hosts
 
