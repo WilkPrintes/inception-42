@@ -26,5 +26,4 @@ while mysqladmin ping -hlocalhost --silent; do
     sleep 1
 done
 
-# Executando o servidor MariaDB novamente
 exec mariadbd
